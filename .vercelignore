@@ -1,0 +1,10 @@
+# Vercel single-file limit is 100MB — Sabrina testimonial is ~118MB.
+# Preview ships poster + Play UI; video source remains local until CDN/hosting.
+**/*.mov
+**/*.MOV
+
+# Local package store / build artifacts (should not ship)
+.pnpm-store
+.next
+node_modules
+tsconfig.tsbuildinfo
