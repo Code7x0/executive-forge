@@ -128,7 +128,7 @@ export const clientLove = {
     {
       name: "Sabrina",
       title: "Done-With-You client",
-      src: "/assets/Testimonial/Sabrina DWY video testimonial (1).mov",
+      src: "/assets/Testimonial/Sabrina DWY video testimonial.mp4",
       poster: null as string | null,
       caption: null as string | null,
       autoplayOnView: true as const,

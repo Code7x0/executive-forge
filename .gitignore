@@ -13,9 +13,8 @@
 # Hardlink mirror tree (canonical files live under public/assets/*)
 public/assets/_organized/
 
-# GitHub rejects files >100MB (Sabrina testimonial .mov ~117MB).
-# Keep local for dev; upload via Git LFS or external host later.
-public/assets/Testimonial/Sabrina DWY video testimonial (1).mov
+# Original camera .mov (~117MB) exceeds GitHub's 100MB limit.
+# Site uses the compressed .mp4 instead; keep the .mov local-only.
 *.mov
 .yarn/*
 !.yarn/patches
