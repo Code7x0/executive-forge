@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none" role="img" aria-label="Guildhall">
+  <rect width="280" height="64" rx="10" fill="#0B1F3A"/>
+  <path d="M18 44V20h6.2v24H18zm10.4-24h6.2v18.8c0 3.4 1.7 5.2 4.8 5.2 3 0 4.7-1.8 4.7-5.2V20h6.2v19.2c0 7-4.1 10.6-11 10.6-6.8 0-10.9-3.6-10.9-10.6V20z" fill="#F2C94C"/>
+  <text x="62" y="40" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-weight="600" letter-spacing="0.5">Guildhall</text>
+</svg>
