@@ -1,7 +1,7 @@
 export const brand = {
   name: "Executive Forge",
   logo: "/assets/brand/executive-forge-logo.png",
-  email: "hello@executiveforge.com",
+  email: "suhana@executiveforge.org",
   linkedin: "https://www.linkedin.com/",
   places: [
     {
@@ -27,6 +27,11 @@ export const brand = {
   ],
 };
 
+export const booking = {
+  introCall: "https://calendly.com/suhanasiddika255/suhana_siddika_personalbrandingcall",
+  strategyCall: "https://topmate.io/suhanasiddika/1030837",
+};
+
 export const nav = [
   { href: "/case-studies", label: "Case studies" },
   { href: "/services", label: "Services" },
@@ -38,7 +43,7 @@ export const hero = {
   headline: "You've built the expertise. Let's make sure the right people actually see it!",
   standfirst:
     "I help founders, executives and experts turn what they know into a LinkedIn presence that gets them noticed by the right people and creates real business opportunities.",
-  primaryCta: { label: "Book an intro call", href: "#book" },
+  primaryCta: { label: "Book an intro call", href: booking.introCall },
   secondaryCta: { label: "Read case studies", href: "/case-studies" },
   proof: "Organic growth only · Zero bots",
 };
@@ -78,7 +83,7 @@ export const recognition = {
     { name: "Khaleej Times", src: "/assets/collaborated/khaleej-times-mark.png" },
     { name: "Emirates NBD", src: "/assets/collaborated/emirates-nbd.png" },
     { name: "Guildhall", src: "/assets/collaborated/guildhall.svg" },
-    { name: "Keyers", src: "/assets/collaborated/keyers.svg" },
+    { name: "Keyers", src: "/assets/collaborated/keyers.jpg" },
   ],
   badges: [
     "/assets/recognized/proof-1.jpeg",
@@ -147,7 +152,7 @@ export const testimonials = [
       "Suhana and her team is amazing. They are highly professional, understands the branding aspect of LinkedIn too well. I highly recommend her.",
     name: "Amal Al Abbas",
     role: "Senior Human Resource Manager",
-    portrait: "/assets/testimonials/clean/amal.jpg",
+    portrait: undefined,
   },
   {
     quote: "Her customized strategy & strategic ideas have really increased my engagement reach.",
@@ -167,7 +172,7 @@ export const testimonials = [
 export const strategyCall = {
   title: "Not ready for a full program? Let's start with one call.",
   text: "Bring me whatever you're stuck on with LinkedIn. In 60 minutes, I'll review your profile, help you figure out what you should be known for, and send you home with a personalised 30-Day LinkedIn Action Plan.",
-  cta: { label: "Book your strategy call", href: "#book" },
+  cta: { label: "Book your strategy call", href: booking.strategyCall },
 };
 
 export const faqItems = [
@@ -203,6 +208,6 @@ export const faqItems = [
 
 export const closing = {
   title: "Want to be our next best kept client?",
-  primary: { label: "Book an intro call", href: "#book" },
-  secondary: { label: "Book a one-time strategy call", href: "#book" },
+  primary: { label: "Book an intro call", href: booking.introCall },
+  secondary: { label: "Book a one-time strategy call", href: booking.strategyCall },
 };

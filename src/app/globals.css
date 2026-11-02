@@ -33,27 +33,27 @@
 
 :root {
   /*
-    Executive Forge — premium dark editorial
-    Accent: brand red (kept). Surfaces: charcoal hierarchy.
-    Semantic aliases kept so existing components flip cleanly:
-    --cream = page ground, --ink = primary text (ivory).
+    Executive Forge — charcoal page + dark CTA-style cards
+    Card bg: deep navy gradient + soft #6F8CFF glow (matches closing CTA).
   */
   --cream: #0b0d10;
   --surface: #101318;
-  --elevated: #161a21;
-  --interactive: #1d232c;
+  --elevated: #121820;
+  --interactive: #1a2233;
   --ink: #f5f3ee;
   --soft: #b5bac4;
   --muted-text: #858c98;
   --brand: #e11d2e;
   --brand-deep: #950101;
   --brand-soft: rgba(225, 29, 46, 0.16);
+  --cool: #6f8cff;
+  --cool-deep: #3d56c9;
   --line: #2a303a;
   --line-strong: #3a424f;
 
   --background: #0b0d10;
   --foreground: #f5f3ee;
-  --card: #161a21;
+  --card: #121820;
   --card-foreground: #f5f3ee;
   --primary: #f5f3ee;
   --primary-foreground: #0b0d10;
@@ -76,13 +76,17 @@
   --glass: rgba(11, 13, 16, 0.72);
   --glass-strong: rgba(16, 19, 24, 0.9);
   --glass-edge: rgba(255, 255, 255, 0.08);
-  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.28), 0 12px 36px rgba(0, 0, 0, 0.35);
-  --shadow-lift: 0 10px 24px rgba(0, 0, 0, 0.35), 0 28px 56px rgba(0, 0, 0, 0.4);
-  --shadow-product: 0 10px 32px rgba(0, 0, 0, 0.45);
-  --grad-atmosphere: radial-gradient(ellipse 70% 50% at 50% -8%, rgba(225, 29, 46, 0.18), transparent 58%),
-    radial-gradient(ellipse 45% 40% at 95% 15%, rgba(130, 151, 194, 0.06), transparent 50%),
-    radial-gradient(ellipse 40% 35% at 5% 70%, rgba(225, 29, 46, 0.08), transparent 48%);
-  --grad-panel: linear-gradient(165deg, rgba(29, 35, 44, 0.95) 0%, rgba(22, 26, 33, 0.98) 48%, rgba(18, 22, 28, 1) 100%);
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.28), 0 14px 40px rgba(0, 0, 0, 0.35);
+  --shadow-lift: 0 12px 28px rgba(0, 0, 0, 0.35), 0 28px 56px rgba(111, 140, 255, 0.12);
+  --shadow-product: 0 10px 32px rgba(0, 0, 0, 0.4);
+  --grad-atmosphere: radial-gradient(ellipse 70% 50% at 50% -8%, rgba(225, 29, 46, 0.14), transparent 58%),
+    radial-gradient(ellipse 50% 42% at 92% 12%, rgba(111, 140, 255, 0.14), transparent 52%),
+    radial-gradient(ellipse 40% 35% at 5% 70%, rgba(225, 29, 46, 0.06), transparent 48%);
+  /* Shared card surface — same language as the closing CTA */
+  --grad-panel: radial-gradient(ellipse 80% 70% at 90% 0%, rgba(111, 140, 255, 0.28), transparent 55%),
+    linear-gradient(165deg, #1a2233 0%, #121820 45%, #0b0d10 100%);
+  --grad-panel-blue: radial-gradient(ellipse 80% 70% at 90% 0%, rgba(111, 140, 255, 0.34), transparent 55%),
+    linear-gradient(165deg, #1a2233 0%, #121820 45%, #0b0d10 100%);
   --grad-ink-3d: linear-gradient(180deg, #ffffff 0%, #f5f3ee 45%, #e4e0d8 100%);
   --grad-brand-3d: linear-gradient(180deg, #f03a48 0%, var(--brand) 45%, var(--brand-deep) 100%);
 }
@@ -221,13 +225,15 @@
 
 .site-card,
 .alive-card,
-.glass-card {
+.glass-card,
+.site-card-blue {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   border-radius: 1.15rem;
+  color: var(--ink);
   background: var(--grad-panel);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(245, 243, 238, 0.08);
   box-shadow: var(--shadow-soft);
   transform-style: preserve-3d;
   transition:
@@ -236,17 +242,35 @@
     background 0.35s var(--ease);
 }
 
+.site-card::before,
+.alive-card::before,
+.glass-card::before,
+.site-card-blue::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 28%);
+  z-index: 0;
+}
+
 .alive-card:hover,
 .glass-card:hover,
-.site-card:hover {
-  border-color: var(--line-strong);
+.site-card:hover,
+.site-card-blue:hover {
+  border-color: rgba(111, 140, 255, 0.28);
   box-shadow: var(--shadow-lift);
 }
 
+.site-card-blue {
+  background: var(--grad-panel-blue);
+}
+
 .glass-card {
-  background: rgba(22, 26, 33, 0.72);
-  backdrop-filter: blur(22px) saturate(150%);
-  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  background: var(--grad-panel);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
   border-color: rgba(245, 243, 238, 0.1);
   box-shadow:
     inset 0 1px 0 var(--glass-edge),
@@ -258,20 +282,15 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(
-    125deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0) 40%,
-    rgba(225, 29, 46, 0.08) 72%,
-    rgba(255, 255, 255, 0.04) 100%
-  );
-  opacity: 0.7;
-  mix-blend-mode: soft-light;
+  background: radial-gradient(circle at 88% 0%, rgba(111, 140, 255, 0.35), transparent 55%);
+  opacity: 0.85;
   z-index: 0;
 }
 
-.alive-card > *:not(.alive-card-sheen),
-.glass-card > *:not(.alive-card-sheen) {
+.site-card > *:not(.alive-card-sheen):not([aria-hidden]),
+.site-card-blue > *:not(.alive-card-sheen):not([aria-hidden]),
+.alive-card > *:not(.alive-card-sheen):not([aria-hidden]),
+.glass-card > *:not(.alive-card-sheen):not([aria-hidden]) {
   position: relative;
   z-index: 1;
 }
@@ -303,8 +322,8 @@
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(225, 29, 46, 0.1), transparent 55%),
-    radial-gradient(ellipse 40% 45% at 100% 80%, rgba(130, 151, 194, 0.05), transparent 50%);
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(225, 29, 46, 0.08), transparent 55%),
+    radial-gradient(ellipse 45% 50% at 100% 80%, rgba(130, 151, 194, 0.12), transparent 52%);
 }
 
 .section-mesh > * {
@@ -410,13 +429,9 @@ html.lenis body {
   cursor: pointer;
 }
 
-/* Black-on-transparent marks → ivory on charcoal */
-.brand-logo-img,
+/* Mono partner marks → ivory on charcoal */
 .partner-logo-mono {
   filter: brightness(0) invert(1);
-}
-
-.partner-logo-mono {
   opacity: 0.92;
 }
 

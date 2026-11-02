@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { brand, nav } from "@/data/content";
+import { booking, brand, nav } from "@/data/content";
 import { BrandLogo } from "./BrandLogo";
 
 export function Footer() {
@@ -65,9 +65,14 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#book" className="hover:text-[var(--ink)]">
+                  <a
+                    href={booking.introCall}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[var(--ink)]"
+                  >
                     Intro call
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>

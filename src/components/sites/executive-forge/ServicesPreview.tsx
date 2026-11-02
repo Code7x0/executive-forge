@@ -27,17 +27,20 @@ export function ServicesPreview() {
         <div className="mt-12 grid gap-4 lg:grid-cols-3">
           {servicesPreview.map((s, i) => (
             <Reveal key={s.id} delay={i * 70}>
-              <AliveCard as="article" className="group flex h-full flex-col p-7">
+              <AliveCard
+                as="article"
+                className={`group flex h-full flex-col p-5 md:p-6${i % 2 === 1 ? " site-card-blue" : ""}`}
+              >
                 <div
                   aria-hidden
-                  className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(225,29,46,0.16),transparent_70%)] opacity-40 transition duration-500 group-hover:opacity-100"
+                  className="pointer-events-none absolute -right-10 -top-10 h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(111,140,255,0.28),transparent_70%)] opacity-50 transition duration-500 group-hover:opacity-100"
                 />
-                <p className="relative text-[0.85rem] text-[var(--brand)]">{s.label}</p>
-                <h3 className="display relative mt-3 text-[1.65rem] leading-[1.15]">{s.title}</h3>
-                <p className="relative mt-4 flex-1 text-[0.98rem] text-[var(--soft)]">{s.text}</p>
+                <p className="text-[0.85rem] text-[var(--brand)]">{s.label}</p>
+                <h3 className="display mt-2 text-[1.45rem] leading-[1.15] md:text-[1.55rem]">{s.title}</h3>
+                <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-[var(--soft)]">{s.text}</p>
                 <Link
                   href={s.href}
-                  className="relative mt-8 inline-flex items-center gap-1 text-[0.95rem] text-[var(--ink)] transition group-hover:gap-2.5"
+                  className="mt-5 inline-flex items-center gap-1 text-[0.92rem] text-[var(--ink)] transition group-hover:gap-2.5"
                 >
                   Learn more <span aria-hidden>→</span>
                 </Link>

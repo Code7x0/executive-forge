@@ -1,3 +1,9 @@
+export type CaseStudyPerson = {
+  name: string;
+  role: string;
+  image: string;
+};
+
 export type CaseStudy = {
   slug: string;
   sector: "Founders" | "Finance" | "Healthcare" | "Coaching" | "Leadership";
@@ -9,8 +15,10 @@ export type CaseStudy = {
   quote?: string;
   niche: string;
   services: string;
-  image: string;
+  image?: string;
+  anonymous?: boolean;
   gallery?: string[];
+  people?: CaseStudyPerson[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -27,7 +35,7 @@ export const caseStudies: CaseStudy[] = [
     quote: "7k followers in a month. Far from my own expectation.",
     niche: "Pediatric Nutrition, Baby Led Weaning",
     services: "Positioning, Content Strategy, Reels & Content Creation (Instagram)",
-    image: "/assets/testimonials/clean/pooja-case.png",
+    image: "/assets/testimonials/clean/pooja.png",
   },
   {
     slug: "remy",
@@ -87,7 +95,7 @@ export const caseStudies: CaseStudy[] = [
       "In 60 days: 22 to 26 qualified conversations, 9 to 11 calls booked, and 2 high-ticket deals at $4K a month each. That's $16K closed in the first 28 days.",
     niche: "High-Ticket B2B Consulting (GCC)",
     services: "Positioning, Lead Demand System, DM Outreach Strategy, Lead Magnet",
-    image: "/assets/testimonials/clean/deck-2.png",
+    image: "/assets/testimonials/clean/matthew.jpg",
   },
   {
     slug: "revanshi",
@@ -101,7 +109,7 @@ export const caseStudies: CaseStudy[] = [
       "Within 60 days, she closed $10,000, had 12 to 15 inbound conversations, and 20 high-intent qualified calls.",
     niche: "Sales Coaching for Founders",
     services: "Positioning, Content Strategy, Ghostwriting, Lead Magnet Strategy",
-    image: "/assets/testimonials/clean/deck-3.png",
+    image: "/assets/testimonials/clean/revanshi.jpg",
   },
   {
     slug: "dr-marko",
@@ -116,7 +124,7 @@ export const caseStudies: CaseStudy[] = [
     quote: "Few weeks ago, I had zero clients, now I already booked 3 calls.",
     niche: "Wellness Coaching (Dubai)",
     services: "Profile Repositioning, Lead Magnet Strategy",
-    image: "/assets/testimonials/clean/deck-4.png",
+    image: "/assets/testimonials/clean/dr-marko.png",
   },
   {
     slug: "kensho",
@@ -132,7 +140,24 @@ export const caseStudies: CaseStudy[] = [
       "Working with Suhana is like going to therapy... It's a process that sheds light on you, through which you can discover yourself and find what was forgotten.",
     niche: "PR & Communications Leadership (Oman)",
     services: "Ghostwriting, Thought Leadership, Executive Team LinkedIn Strategy",
-    image: "/assets/testimonials/clean/deck-5.png",
+    image: "/assets/testimonials/clean/kensho-marise.png",
+    people: [
+      {
+        name: "Marise Assaf",
+        role: "Taikun · CEO-Founder | Head of Clients",
+        image: "/assets/testimonials/clean/kensho-marise.png",
+      },
+      {
+        name: "Islam Abdelwahab",
+        role: "Meijin · Managing Partner | Creative Director",
+        image: "/assets/testimonials/clean/kensho-islam.png",
+      },
+      {
+        name: "Rana El Naggar",
+        role: "Sōke · Public Relations | Managing Director",
+        image: "/assets/testimonials/clean/kensho-rana.png",
+      },
+    ],
   },
   {
     slug: "bhumika",
@@ -146,6 +171,6 @@ export const caseStudies: CaseStudy[] = [
       "Two responded: Amazon, for a Senior Finance Associate role, and a talent agency, for a Director of Finance role. Both sent her resume straight to the interview round.",
     niche: "Finance Professional, Career Growth",
     services: "Done-With-You Coaching, Profile Optimisation, Outreach Strategy",
-    image: "/assets/testimonials/clean/deck-6.png",
+    anonymous: true,
   },
 ];

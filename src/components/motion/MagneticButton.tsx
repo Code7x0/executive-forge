@@ -49,6 +49,8 @@ export function MagneticButton({ href, children, className, strength = 0.32 }: P
     });
   };
 
+  const external = /^https?:\/\//i.test(href);
+
   return (
     <Link
       ref={ref}
@@ -58,6 +60,7 @@ export function MagneticButton({ href, children, className, strength = 0.32 }: P
       onMouseDown={onDown}
       onMouseUp={onUp}
       onMouseLeave={onLeave}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {children}
     </Link>

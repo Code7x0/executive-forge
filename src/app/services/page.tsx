@@ -5,6 +5,7 @@ import { Footer } from "@/components/sites/executive-forge/Footer";
 import { Reveal } from "@/components/providers/Reveal";
 import { Faq } from "@/components/sites/executive-forge/Faq";
 import { CtaBand } from "@/components/sites/executive-forge/CtaBand";
+import { booking } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -103,13 +104,15 @@ function WeekCard({
   title,
   intro,
   points,
+  tone = "cream",
 }: {
   title: string;
   intro?: string;
   points: string[];
+  tone?: "cream" | "blue";
 }) {
   return (
-    <Reveal className="site-card p-6 md:p-7">
+    <Reveal className={`site-card p-6 md:p-7${tone === "blue" ? " site-card-blue" : ""}`}>
       <h3 className="display text-[1.45rem]">{title}</h3>
       {intro ? <p className="mt-3 text-[var(--soft)]">{intro}</p> : null}
       <ul className="mt-5 space-y-2.5 text-[var(--soft)]">
@@ -180,15 +183,16 @@ export default function ServicesPage() {
                 intro="We start with the basics and make sure your profile and personal brand are crystal clear."
                 points={weekOne}
               />
-              <WeekCard title="Week 2: Build your content system." points={weekTwo} />
+              <WeekCard title="Week 2: Build your content system." points={weekTwo} tone="blue" />
               <WeekCard title="Week 3: Work on your actual content." points={weekThree} />
               <WeekCard
                 title="Week 4: Build your growth system"
                 intro="We'll look at how to get your content in front of the right people."
                 points={weekFour}
+                tone="blue"
               />
             </div>
-            <Reveal className="site-card mt-8 p-6 md:p-8">
+            <Reveal className="site-card site-card-blue mt-8 p-6 md:p-8">
               <p className="text-[var(--ink)]">
                 <span className="text-[var(--brand)]">What you get:</span> 4 weekly 1:1 calls ·
                 Personalized strategy · Content frameworks & reviews · Execution guidance ·
@@ -199,9 +203,14 @@ export default function ServicesPage() {
                 Done-With-You, not Done-For-You. You&apos;ll do the actual posting. I&apos;ll be
                 right there to guide you.
               </p>
-              <Link href="#book" className="btn btn-primary mt-7">
+              <a
+                href={booking.introCall}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary mt-7"
+              >
                 Start the 4-week sprint
-              </Link>
+              </a>
             </Reveal>
           </div>
         </section>
@@ -250,9 +259,14 @@ export default function ServicesPage() {
               </Reveal>
             </div>
             <Reveal className="mt-8">
-              <Link href="#book" className="btn btn-primary">
+              <a
+                href={booking.introCall}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
                 Book an intro call
-              </Link>
+              </a>
             </Reveal>
           </div>
         </section>
@@ -276,9 +290,14 @@ export default function ServicesPage() {
               </p>
             </Reveal>
             <Reveal delay={90} className="mt-8">
-              <Link href="#book" className="btn btn-brand">
+              <a
+                href={booking.strategyCall}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-brand"
+              >
                 Book your strategy call
-              </Link>
+              </a>
             </Reveal>
           </div>
         </section>

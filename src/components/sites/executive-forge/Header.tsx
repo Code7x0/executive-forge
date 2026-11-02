@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { brand, nav } from "@/data/content";
+import { booking, brand, nav } from "@/data/content";
 import { cn } from "@/lib/utils";
 import { BrandLogo } from "./BrandLogo";
 
@@ -52,7 +52,12 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="#book" className="btn btn-primary hidden sm:inline-flex">
+          <Link
+            href={booking.introCall}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary hidden sm:inline-flex"
+          >
             Book a call
           </Link>
           <button
@@ -79,7 +84,13 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link href="#book" className="btn btn-primary mt-2" onClick={() => setOpen(false)}>
+            <Link
+              href={booking.introCall}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary mt-2"
+              onClick={() => setOpen(false)}
+            >
               Book a call
             </Link>
           </nav>
