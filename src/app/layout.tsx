@@ -25,9 +25,15 @@ export const metadata: Metadata = {
     "I help founders, executives and experts turn what they know into a LinkedIn presence that gets them noticed by the right people and creates real business opportunities.",
   applicationName: "Executive Forge",
   icons: {
-    icon: [{ url: "/icon.png", type: "image/png", sizes: "512x512" }],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-    shortcut: ["/icon.png"],
+    icon: [
+      { url: "/assets/brand/executive-forge-logo.png", type: "image/png", sizes: "1024x1024" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/assets/brand/executive-forge-logo.png", sizes: "1024x1024", type: "image/png" },
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/assets/brand/executive-forge-logo.png"],
   },
   openGraph: {
     title: "Executive Forge — Executive Personal Branding & Thought Leadership",
@@ -36,9 +42,9 @@ export const metadata: Metadata = {
     siteName: "Executive Forge",
     images: [
       {
-        url: "/assets/brand/og-logo.png",
-        width: 1200,
-        height: 1200,
+        url: "/assets/brand/executive-forge-logo.png",
+        width: 1024,
+        height: 1024,
         alt: "Executive Forge",
       },
     ],
@@ -49,7 +55,7 @@ export const metadata: Metadata = {
     title: "Executive Forge",
     description:
       "Personal branding and LinkedIn strategy for founders, executives and experts.",
-    images: ["/assets/brand/og-logo.png"],
+    images: ["/assets/brand/executive-forge-logo.png"],
   },
 };
 
